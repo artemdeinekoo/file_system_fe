@@ -1,0 +1,46 @@
+.files {
+  padding: 40px;
+  background: #eeeaea;
+  width: 100%;
+  height: 100vh;
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      button {
+        cursor: pointer;
+        background: #3957c0;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        color: #fff;
+        padding: 20px;
+        font-size: 20px;
+
+        img {
+          width: 20px;
+        }
+      }
+    }
+  }
+
+  .divider {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: #7393b3;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}
