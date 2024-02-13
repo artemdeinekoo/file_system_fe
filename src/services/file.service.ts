@@ -4,20 +4,20 @@ import { IFile, IUpdateFile } from "../interfaces/File";
 class fileService {
   private API_URL = "http://127.0.0.1:8000/files";
 
-  async addFile({ name, parentFolderId, conent }: IFile) {
+  async addFile({ name, parentFolderId, content }: IFile) {
     return axios.post<any, any, IFile>(`${this.API_URL}/`, {
       name,
-      conent,
+      content,
       parentFolderId,
     });
   }
 
-  async getById(id: number) {
+  async getById(id: number, { name, content }: IUpdateFile) {
     return axios.get(`${this.API_URL}/${id}`);
   }
 
   async updateFile(id: number, { name, content }: IUpdateFile) {
-    return axios.put<any, any, IUpdateFile>(`${this.API_URL}/${id}/`, {
+    return axios.put<any, any, IUpdateFile>(`${this.API_URL}/${id}`, {
       name,
       content,
     });

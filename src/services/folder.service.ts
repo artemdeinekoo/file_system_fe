@@ -1,14 +1,13 @@
 import axios from "axios";
 import { IFolder, IUpdateFolder } from "../interfaces/Folder";
-import { Params } from "react-router-dom";
 
 class folderService {
   private API_URL = "http://127.0.0.1:8000/folders";
 
   async addFolder({ name, parentFolderId }: IFolder) {
     return axios.post<any, any, IFolder>(`${this.API_URL}/`, {
-      name,
-      parentFolderId,
+      name: name,
+      parentFolderId: parentFolderId,
     });
   }
 
@@ -17,7 +16,7 @@ class folderService {
   }
 
   async updateFolder(id: number, name: string) {
-    return axios.put<any, any, IUpdateFolder>(`${this.API_URL}/${id}/`, {
+    return axios.put<any, any, IUpdateFolder>(`${this.API_URL}/${id}`, {
       name,
     });
   }

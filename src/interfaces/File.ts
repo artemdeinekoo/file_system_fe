@@ -11,8 +11,8 @@ export interface File {
 
 export interface IFile {
   name: string;
-  conent: string;
-  parentFolderId?: number;
+  content: string;
+  parentFolderId?: number | null;
 }
 
 export interface IUpdateFile {

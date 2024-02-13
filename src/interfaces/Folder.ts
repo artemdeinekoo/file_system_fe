@@ -11,7 +11,7 @@ export interface Folder {
 
 export interface IFolder {
   name: string;
-  parentFolderId?: number;
+  parentFolderId?: number | null;
 }
 
 export interface IUpdateFolder extends Omit<IFolder, "parentFolderId"> {}
