@@ -10,6 +10,7 @@ export const useUpdateFolder = () => {
       folderService.updateFolder(data.id, data.name),
     async onSuccess() {
       queryClient.invalidateQueries({ queryKey: ["filesStructure"] });
+      queryClient.invalidateQueries({ queryKey: ["search"] });
     },
   });
 };

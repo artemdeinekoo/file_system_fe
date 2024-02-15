@@ -4,6 +4,12 @@
   position: relative;
   align-items: center;
   cursor: pointer;
+  max-width: 80px;
+
+  h4 {
+    max-width: 80px;
+    overflow: hidden;
+  }
 
   .buttons {
     display: none;

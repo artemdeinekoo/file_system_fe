@@ -1,9 +1,12 @@
-import Files from "./components/Files/Files";
+// import Files from "./components/Files/Files";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
+
 
 function App() {
   return (
     <div className="container">
-      <Files />
+      <RouterProvider router={router} />
     </div>
   );
 }

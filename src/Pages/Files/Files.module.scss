@@ -1,6 +1,5 @@
 .files {
   padding: 40px;
-  background: #eeeaea;
   width: 100%;
   height: 100vh;
 
@@ -12,7 +11,8 @@
     .buttons {
       display: flex;
       gap: 20px;
-      button {
+      button,
+      a {
         cursor: pointer;
         background: #3957c0;
         height: 60px;
@@ -20,13 +20,15 @@
         color: #fff;
         padding: 20px;
         font-size: 20px;
+        text-align: center;
 
         img {
           width: 20px;
         }
       }
 
-      button:hover {
+      button:hover,
+      a:hover {
         background: #576ec2;
       }
     }
@@ -54,5 +56,24 @@
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .files {
+    padding: 10px;
+
+    .top {
+      flex-direction: column;
+      gap: 20px;
+      .buttons {
+        width: 100%;
+        flex-direction: column;
+      }
+    }
+
+    .main {
+      justify-content: flex-start;
+    }
   }
 }

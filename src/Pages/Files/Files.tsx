@@ -1,19 +1,22 @@
 import styles from "./Files.module.scss";
 import search from "../../icons/search.svg";
 import { useGetFilesStructure } from "../../hooks/useGetFilesStructure";
-import Folder from "../Folder/Folder";
-import File from "../File/File";
+import Folder from "../../components/Folder/Folder";
+import File from "../../components/File/File";
 
-import { File as FileIntrface } from "../../interfaces/File";
+import { File as FileInterface } from "../../interfaces/File";
 import { useState, useEffect } from "react";
-import AddFolderModal from "../AddFolderModal/AddFolderModal";
-import AddFileModal from "../AddFileModal/AddFileModal";
+import AddFolderModal from "../../components/AddFolderModal/AddFolderModal";
+import AddFileModal from "../../components/AddFileModal/AddFileModal";
+import { Link } from "react-router-dom";
+import Sort from "../../components/Sort/Sort";
 
 const Files = () => {
   const [folderId, setFolderId] = useState<number | null>(null);
   const { data, isFetching, isError, refetch } = useGetFilesStructure(folderId);
   const [addFolder, setAddFolder] = useState<boolean>(false);
   const [addFile, setAddFile] = useState<boolean>(false);
+  const [sorting, setSorting] = useState<string>("");
 
   useEffect(() => {
     refetch();
@@ -30,11 +33,11 @@ const Files = () => {
         <div className={styles.buttons}>
           <button onClick={() => setAddFile(true)}>New File</button>
           <button onClick={() => setAddFolder(true)}>New Folder</button>
-          <button>Sort by name</button>
-          <button>Sort by size</button>
-          <button>
+          <button onClick={() => setSorting("name")}>Sort by name</button>
+          <button onClick={() => setSorting("byteSize")}>Sort by size</button>
+          <Link to={"/search"}>
             <img src={search} alt="" />
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -60,8 +63,8 @@ const Files = () => {
         ) : data.items.length === 0 ? (
           <p>The currrent folder is empty</p>
         ) : (
-          <>
-            {data.items.map((obj: FileIntrface) =>
+          <Sort by={sorting}>
+            {data.items.map((obj: FileInterface) =>
               obj.isFolder ? (
                 <Folder
                   key={obj.id}
@@ -88,7 +91,7 @@ const Files = () => {
                 />
               )
             )}
-          </>
+          </Sort>
         )}
       </div>
 

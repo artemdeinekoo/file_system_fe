@@ -4,6 +4,7 @@
   position: relative;
   align-items: center;
   cursor: pointer;
+  max-width: 80px;
 
   .buttons {
     display: none;
@@ -23,6 +24,11 @@
     button:hover {
       background: #3957c0;
     }
+  }
+
+  h4 {
+    max-width: 80px;
+    overflow:hidden; 
   }
 
   .icon {

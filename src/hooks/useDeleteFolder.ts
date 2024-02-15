@@ -9,6 +9,7 @@ export const useDeleteFolder = () => {
     mutationFn: (id: number) => folderService.deleteById(id),
     async onSuccess() {
       queryClient.invalidateQueries({ queryKey: ["filesStructure"] });
+      queryClient.invalidateQueries({ queryKey: ["search"] });
     },
   });
 };

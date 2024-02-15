@@ -10,6 +10,10 @@ class fileSystemService {
       return axios.get(this.API_URL);
     }
   }
+
+  async searchForObjects(query: string | null) {
+    return axios.get(`${this.API_URL}/search/${query}`);
+  }
 }
 
 export default new fileSystemService();

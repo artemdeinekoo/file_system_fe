@@ -11,6 +11,7 @@ export const useUpdateFile = () => {
       fileService.updateFile(data.id, data.updateFile),
     async onSuccess() {
       queryClient.invalidateQueries({ queryKey: ["filesStructure"] });
+      queryClient.invalidateQueries({ queryKey: ["search"] });
     },
   });
 };
