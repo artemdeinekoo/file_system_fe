@@ -2,7 +2,7 @@ import axios from "axios";
 import { IFile, IUpdateFile } from "../interfaces/File";
 
 class fileService {
-  private API_URL = "http://127.0.0.1:8000/files";
+  private API_URL = `${process.env.REACT_APP_API_URL}/files`;
 
   async addFile({ name, parentFolderId, content }: IFile) {
     return axios.post<any, any, IFile>(`${this.API_URL}/`, {

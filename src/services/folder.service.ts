@@ -2,7 +2,7 @@ import axios from "axios";
 import { IFolder, IUpdateFolder } from "../interfaces/Folder";
 
 class folderService {
-  private API_URL = "http://127.0.0.1:8000/folders";
+  private API_URL = `${process.env.REACT_APP_API_URL}/folders`;
 
   async addFolder({ name, parentFolderId }: IFolder) {
     return axios.post<any, any, IFolder>(`${this.API_URL}/`, {
